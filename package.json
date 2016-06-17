@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nabit/nabit#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "sqlite3": "^3.1.4"
   }
 }
