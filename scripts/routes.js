@@ -1,5 +1,6 @@
 page('/post/:user/:bookmark', postUserBookmark, refreshPage);
-
+page('/', bookmarkController.index);
+page('/everyBkm', everyBkmController.index);
 /*
   www.nabit.herokuapp.com/post/admin/www.nytimes.com
 
