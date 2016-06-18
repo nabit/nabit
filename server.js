@@ -6,8 +6,6 @@ var express = require('express'),
 
 db.serialize(function() {
   db.run('CREATE TABLE if not exists urlData (url TEXT)');
-  db.run('INSERT INTO urlData VALUES ("please work")');
-  db.run('INSERT INTO urlData (url) VALUES ("please work!!!")');
   db.each('SELECT rowid AS id, url FROM urlData', function(err, row) {
     console.log(row.id + ': ' + row.url);
   });
@@ -21,7 +19,7 @@ app.get('/', function(request, response) {
   response.send('<h1>I\'m a headline!</h1>');
 });
 
-app.post('/post/:bookmark', function(request, response){
+app.get('/post/:bookmark', function(request, response){
   var bookmark = request.params.bookmark;
   db.run('INSERT INTO urlData VALUES (?)', bookmark);
   db.each('SELECT rowid AS id, url FROM urlData', function(err, row) {
