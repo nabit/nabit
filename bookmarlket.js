@@ -16,7 +16,7 @@ javascript:(function(){
   };
 
   post_to_url(
-    'localhost:3000/post',
+    'http://nabit.herokuapp.com/post/',
     {url: window.location.href}
   );
 })();
