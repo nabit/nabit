@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-(function(module) {
-  var bookmarkController = {};
-
-  bookmarkController.index = function() {
-    // $('').hide();
-    // $('').show();
-
-    // repos.requestRepos(repoView.index);
-=======
 (function(module){
 
   var bookmarkController = {
@@ -79,7 +69,6 @@
     //   }
     // },
 
->>>>>>> 790b4473f4182267b2a0767e4fb73cb0d73da0f4
   };
 
   module.bookmarkController = bookmarkController;
