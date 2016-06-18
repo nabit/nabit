@@ -146,45 +146,79 @@
     </header>
     <nav>
         <ul>
-            <li>
+            <li id=burger-menu>
+            </li>
+            <li><a href="#login" data-toggle="modal">Login</a>
+
             </li>
             <li>
-              Login
-            </li>
-            <li>
-              Logout
+                Logout
             </li>
         </ul>
 
     </nav>
 
-    <div id="search-bar">
-        <input id='search-box' placeholder=''></input>
+    <main>
+
+        <div id="carouselRecent">
+        </div>
+
+        <div id="search-bar">
+            <input id='search-box' placeholder=''></input>
+        </div>
 
 
+        <div id="carouselRemind">
+
+        </div>
+
+    </main>
+    <div class="modal modal-background" id="login" role="form">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <img id="cross-button" src="assets/cross.png" alt="cross">
+                <div class="modal-header">
+                    <h1>Login</h1>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group" <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <section id='modale-login'>
-
-        <input id='input-box' placeholder=''></input>
-    </section>
     <section id='modale-addTags'>
 
         <input id='input-box' placeholder=''></input>
     </section>
-
+    
     <!-- vender scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="vendor/handlebars.js"></script>
     <script type="text/javascript" src="vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/page.js"></script>
 
     <!--our scripts -->
     <script type="text/javascript" src="scripts/bookmark.js"></script>
     <script type="text/javascript" src="scripts/bookmarkController.js"></script>
     <script type="text/javascript" src="scripts/everyBkmController.js"></script>
-    <script type="text/javascript" src="scripts/bookmarkView.js"></script>
-    <script src="/scripts/routes.js"></script>
+    <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
+    <script src="scripts/routes.js"></script>
 
 </body>
 
