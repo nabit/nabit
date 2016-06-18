@@ -1,0 +1,10 @@
+#cross-button {
+  width: 15px;
+  float: right;
+  margin: 5px;
+}
+
+.modal-background {
+  background-color: gray;
+  opacity: .8;
+}

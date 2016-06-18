@@ -1,27 +1,10 @@
-page('/post/:user/:bookmark', postUserBookmark, refreshPage);
+<<<<<<< HEAD
 page('/', bookmarkController.index);
 page('/everyBkm', everyBkmController.index);
-/*
-  www.nabit.herokuapp.com/post/admin/www.nytimes.com
-
-  context.params.user = 'admin'
-  context.params.bookmark = 'www.nytimes.com'
-
-  function postUserBookmark(context, next) {
-    var stmt = db.prepare('INSERT INTO url_table VALUES (?)');
-
-    stmt.run(context.params.bookmark);
-
-    db.finalize();
-  }
-
-  bookmarklet:
-
-  javascript:(function(){
-    var user = 'admin'
-    $.ajax({
-      type: 'POST'
-      url: 'www.nabit.herokuapp.com/post/' + user + '/' + window.location.href
-    })
-  })();
-*/
+page();
+=======
+page('/', bookmarkController.index, function(){
+  console.log(bookmarkController.urlData);
+  console.log(context.params.urlData);
+});
+>>>>>>> 790b4473f4182267b2a0767e4fb73cb0d73da0f4

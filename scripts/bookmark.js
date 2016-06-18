@@ -10,8 +10,9 @@
 
   Bookmarks.prototype.toHtml = function() {
 
-    var articleTemplate = $('#template').html();
-    var compiledTemplate = Handlebars.compile(articleTemplate);
+    var remindCarouselTemplate = $('#carousel-reminder-template').html();
+    var recentsCarouselTemplate = $('#carousel-recent-template').html();
+    var compiledTemplates = Handlebars.compile(remindCarouselTemplate, recentsCarouselTemplate);
 
     return compiledTemplate(this);
 
