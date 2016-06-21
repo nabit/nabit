@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <link type="text/css" rel="stylesheet" href="styles/vendor/normalize.css">
     <link type="text/css" rel="stylesheet" href="styles/base.css">
     <!-- <link type="text/css" rel="stylesheet" href="styles/base.css">
@@ -15,7 +15,6 @@
 
 
     <title>NabIt</title>
-</head>
 
 <script id="carousel-reminder-template" type="text/x-handlebars-template">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -140,6 +139,7 @@
         </a>
     </div>
 </script>
+</head>
 
 <body>
     <header>NabIt
@@ -165,7 +165,7 @@
         </div>
 
         <div id="search-bar">
-            <input id='search-box' placeholder=''></input>
+            <input id='search-box' placeholder=''>
         </div>
 
 
@@ -182,7 +182,7 @@
                     <h1>Login</h1>
                     <div class="modal-body">
                         <form role="form">
-                            <div class="form-group" <label for="username">Username:</label>
+                            <div class="form-group"> <label for="username">Username:</label>
                                 <input type="text" class="form-control" id="username">
                             </div>
                             <div class="form-group">
@@ -203,7 +203,7 @@
 
     <section id='modale-addTags'>
 
-        <input id='input-box' placeholder=''></input>
+        <input id='input-box' placeholder=''>
     </section>
 
     <!-- vender scripts -->
@@ -214,11 +214,11 @@
     <script type="text/javascript" src="vendor/page.js"></script>
 
     <!--our scripts -->
-    <script type="text/javascript" src="scripts/bookmark.js"></script>
-    <script type="text/javascript" src="scripts/bookmarkController.js"></script>
-    <script type="text/javascript" src="scripts/everyBkmController.js"></script>
+    <script type="text/javascript" src="./scripts/bookmark.js"></script>
+    <script type="text/javascript" src="./scripts/bookmarkController.js"></script>
+    <script type="text/javascript" src="./scripts/everyBkmController.js"></script>
     <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
-    <script src="scripts/routes.js"></script>
+    <script src="/scripts/routes.js"></script>
 
 </body>
 
