@@ -3,11 +3,29 @@
   var bookmarkController = {
 
     index : function(){
+      //get user and password?
+      //otherwise, check local storage?
+      //if no user, show login modal?
+      //otherwise, load bookmarks
+    },
+
+    getUserInfo : function(context, next){
+      console.log('in user info');
       requestData('../server.js', 'GET')
-        .done(function() {
-          bookmarkController.urlData = urlData;
+        .done(function(data, status, xhr) {
+          bookmarkController.urlData = JSON.parse(urlData);
+          context.userBookmarks = bookmarkController.urlData;
+          console.log('status: ' + status);
+          console.log('data: ' + data);
+          console.log('xhr: ' + xhr);
           console.log(bookmarkController.urlData);
+        })
+        .fail(function(data, message, xhr) {
+          console.log('status: ' + status);
+          console.log('data: ' + data);
+          console.log('xhr: ' + xhr);
         });
+      next();
     },
 
     requestData : function(url, type) {
@@ -16,6 +34,8 @@
         type: type
       });
     }
+
+
 
     // index : function(context, next) {
     //   var self = bookmarkController;
