@@ -3,7 +3,9 @@ page('/', bookmarkController.index, function(){
   console.log(context.params.urlData);
 });
 
-page('/users/:user', function() {
+page('/users/:user', getUserInfo, function() {
   console.log('render it!');
   console.log(context.userBookmarks);
 });
+
+page();
