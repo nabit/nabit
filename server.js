@@ -31,7 +31,7 @@ db.serialize(function() {
 app.get('/', function(request, response) {
   // urlData = JSON.stringify(urlData);
   console.log('New request:', request.url);
-  // response.sendFile('index.html', { root: '.' });
+  response.sendFile('index.html', { root: '.' });
 });
 
 app.get('/data', fetchFromDb, sendData);
