@@ -1,5 +1,5 @@
 var express = require('express'),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 5000,
   app = express(),
   sqlite3 = require('sqlite3').verbose(),
   db = new sqlite3.Database('urlData.db'),
@@ -15,6 +15,8 @@ db.serialize(function() {
 });
 
 //_______initialize routes____________________//
+
+app.use(express.static('./'));
 
 app.get('/', function(request, response) {
   console.log('New req:', request.url);
