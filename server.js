@@ -19,12 +19,10 @@ db.serialize(function() {
 app.use(express.static('./'));
 
 app.get('/', function(request, response) {
-<<<<<<< HEAD
+
   // urlData = JSON.stringify(urlData);
   console.log('New request:', request.url);
-=======
-  console.log('New req:', request.url);
->>>>>>> 9de6d7cf4f7b11fb67d97acce7e6522b84b2a140
+
   response.sendFile('index.html', { root: '.' });
 });
 

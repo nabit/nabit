@@ -30,7 +30,8 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="assets/new_text_image.jpg" alt="">
+              <iframe id="frame" src="http://www.bing.com">
+          </iframe>
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
@@ -38,7 +39,7 @@
             </div>
 
             <div class="item">
-                <img src="assets/text_image.jpg" alt="">
+                <!-- <img src="assets/text_image.jpg" alt=""> -->
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
@@ -92,7 +93,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" width="460" height="345">
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
@@ -100,28 +101,28 @@
             </div>
 
             <div class="item">
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" width="460" height="345">
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" width="460" height="345">
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" width="460" height="345">
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="{{img}}" alt="">
+                <img src="{{img}}" alt="" width="460" height="345">
                 <div class="carousel-caption">
                     <h1>{{url-Title}}</h1>
                 </div>
@@ -149,16 +150,17 @@
         <ul>
             <li id=burger-menu>
             </li>
-            <li><a href="#login" data-toggle="modal">Login</a>
+            <li><a href="#login" id="login-button" data-toggle="modal">Login</a>
 
             </li>
-            <li>
+            <li><a href="#" id="logout-button">
                 Logout
             </li>
         </ul>
 
     </nav>
-
+    <iframe id="frame" src="http://www.bing.com">
+</iframe>
     <main>
 
         <div id="carouselRecent">
@@ -174,7 +176,7 @@
         </div>
 
     </main>
-    <div class="modal show modal-background" id="login" role="form">
+    <div class="modal modal-background" id="login" role="form">
         <div class="modal-dialog">
             <div class="modal-content">
                 <img id="cross-button" src="assets/cross.png" alt="cross">
@@ -205,6 +207,22 @@
 
         <input id='input-box' placeholder=''>
     </section>
+    <div class="modal-body" id="test-form">
+      <form role="form" id="practice-form">
+          <div class="form-group"> <label for="username">Title:</label>
+              <input type="text" class="form-control" id="titleinfo">
+          </div>
+          <div class="form-group">
+              <label for="pwd">Url:</label>
+              <input type="text" class="form-control" id="urlinfo">
+          </div>
+          <div class="checkbox">
+              <label>
+                  <input type="checkbox"> Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-default" id="form-submit">Submit</button>
+      </form>
+    </div>
 
     <!-- vender scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -217,7 +235,7 @@
     <script type="text/javascript" src="public/scripts/bookmark.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
     <script type="text/javascript" src="public/scripts/everyBkmController.js"></script>
-    <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
+    <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
     <script src="public/scripts/routes.js"></script>
 
 </body>

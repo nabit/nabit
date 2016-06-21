@@ -1,5 +1,4 @@
-
-(function (module) {
+(function(module) {
   Bookmarks.all = [];
 
   function Bookmarks(input) {
@@ -27,20 +26,24 @@
 
   Bookmarks.fetchall = function(callBack) {
 
-  //   if (localStorage.rawData) {
-  //       Bookmarks.loadAll(
-  //        JSON.parse(localStorage.getItem('rawData'))
-  //         );
-  //     callBack();
-  //   }
-  //   else {
-  //     $.getJSON('', function(datas) {
-  //       localStorage.setItem('rawData', JSON.stringify(datas));
-  //       Projects.loadAll(datas);
-  //       callBack();
-  //     });
-  //   }
   };
+
+  var testForm = function() {
+    $('#form-submit').on('click', function() {
+            // var title = $('#titleinfo').val();
+      var url = $('#urlinfo').val();
+      $.ajax({
+        type: 'POST',
+        url: '../users/user/bookmark',
+        data: url,
+        success: function() {
+          console.log('data', data);
+        }
+      });
+    });
+    return false;
+  };
+
 
   module.Bookmarks = Bookmarks;
 })(window);
