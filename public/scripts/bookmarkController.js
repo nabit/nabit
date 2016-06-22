@@ -6,7 +6,7 @@
     console.log(username);
 
     //pretend authentication has happened
-    User.name = name;
+    User.name = username;
 
     this.requestData('/' + User.name, 'GET')
       .done(function(data, status, xhr) {
@@ -21,7 +21,7 @@
         console.log('data: ' + data);
         console.log('xhr: ' + xhr);
       });
-  },
+  };
 
   bookmarkController.requestData = function(url, type) {
     return $.ajax({
