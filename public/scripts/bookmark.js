@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 (function(module) {
   Bookmarks.all = [];
+=======
+(function (module) {
+>>>>>>> getserverdata
 
-  function Bookmarks(input) {
+  function Bookmark(title, url, timestamp) {
     this.title = input.title;
     this.url = input.url;
+<<<<<<< HEAD
 
   }
 
@@ -29,6 +34,12 @@
 
 
   module.Bookmarks = Bookmarks;
+=======
+    this.timestamp = new Date(timestamp);
+  };
+
+  module.Bookmark = Bookmark;
+>>>>>>> getserverdata
 })(window);
 
 //
