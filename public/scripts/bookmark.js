@@ -1,46 +1,10 @@
-
 (function (module) {
-  Bookmarks.all = [];
 
-  function Bookmarks(input) {
+  function Bookmark(title, url, timestamp) {
     this.title = input.title;
     this.url = input.url;
-
-  }
-
-  Bookmarks.prototype.toHtml = function() {
-
-    var remindCarouselTemplate = $('#carousel-reminder-template').html();
-    var recentsCarouselTemplate = $('#carousel-recent-template').html();
-    var compiledTemplates = Handlebars.compile(remindCarouselTemplate, recentsCarouselTemplate);
-
-    return compiledTemplate(this);
-
+    this.timestamp = new Date(timestamp);
   };
 
-
-  Bookmarks.loadAll = function(datas) {
-    Bookmarks.all = datas.map(function(i) {
-      return new Bookmarks(i);
-    });
-  };
-
-  Bookmarks.fetchall = function(callBack) {
-
-  //   if (localStorage.rawData) {
-  //       Bookmarks.loadAll(
-  //        JSON.parse(localStorage.getItem('rawData'))
-  //         );
-  //     callBack();
-  //   }
-  //   else {
-  //     $.getJSON('', function(datas) {
-  //       localStorage.setItem('rawData', JSON.stringify(datas));
-  //       Projects.loadAll(datas);
-  //       callBack();
-  //     });
-  //   }
-  };
-
-  module.Bookmarks = Bookmarks;
+  module.Bookmark = Bookmark;
 })(window);

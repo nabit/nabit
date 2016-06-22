@@ -1,43 +1,33 @@
 (function(module){
 
-  var bookmarkController = {
+  var bookmarkController = {};
 
-    index : function(context, next){
-      //get user and password?
-      //otherwise, check local storage?
-      //if no user, show login modal?
-      //otherwise, load bookmarks
-      console.log(bookmarkController.urlData);
-      console.log(context.params.urlData);
-      next();
-    },
+  bookmarkController.getUserInfo = function(username, next){
+    console.log(username);
 
-    getUserInfo : function(username, next){
-      console.log('in user info');
-      bookmarkController.requestData('/user/' + username, 'GET')
-        .done(function(data, status, xhr) {
-          bookmarkController.urlData = JSON.parse(urlData);
-          context.userBookmarks = bookmarkController.urlData;
-          console.log('status: ' + status);
-          console.log('data: ' + data);
-          console.log('xhr: ' + xhr);
-          console.log(bookmarkController.urlData);
-          next();
-        })
-        .fail(function(data, message, xhr) {
-          console.log('status: ' + status);
-          console.log('data: ' + data);
-          console.log('xhr: ' + xhr);
-        });
-    },
+    //pretend authentication has happened
+    User.name = name;
 
-    requestData : function(url, type) {
-      return $.ajax({
-        url: url,
-        type: type
+    this.requestData('/' + User.name, 'GET')
+      .done(function(data, status, xhr) {
+        User.bookmarks = data;
+        console.log('status: ' + status);
+        console.log('data: ' + data);
+        console.log('xhr: ' + xhr);
+        next();
+      })
+      .fail(function(data, message, xhr) {
+        console.log('status: ' + status);
+        console.log('data: ' + data);
+        console.log('xhr: ' + xhr);
       });
-    }
+  },
 
+  bookmarkController.requestData = function(url, type) {
+    return $.ajax({
+      url: url,
+      type: type
+    });
   };
 
   module.bookmarkController = bookmarkController;

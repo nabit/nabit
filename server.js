@@ -8,7 +8,7 @@ var express = require('express'),
 var user = {
   id : null,
   name : null,
-  bookmarks : null
+  bookmarks : []
 };
 
 function Bookmark(title, url, timestamp) {
@@ -22,9 +22,9 @@ function Bookmark(title, url, timestamp) {
 db.serialize(function() {
   db.run('CREATE TABLE if not exists users (username VARCHAR(150), password VARCHAR(150))');
   db.run('CREATE TABLE if not exists bookmarks (user_id INT url VARCHAR(150), title VARCHAR(150), timestamp REAL)');
-  // db.each('SELECT rowid AS id, url, title FROM urlData', function(err, row) {
-  //   console.log(row.id + ': ' + row.url + ' ' + title);
-  // });
+
+  //uncomment for dummy data
+  db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?), (?, ?)', "admin", "admin", "dano", "1234", "aaron", "password");
 });
 
 //_______initialize routes____________________//
@@ -59,11 +59,12 @@ app.post('/:user',
 
   function(request, response, next){
     //db statement
+    next();
   },
   function(request, response) {
-
+    console.log(request.params);
     //send something
-    response.send();
+    response.send(request.params);
   }
 );
 
@@ -131,6 +132,12 @@ app.delete('/:user/bookmarks/:id',
     response.send();
   }
 );
+
+
+
+
+
+
 
 app.get('/users/:username',
 
