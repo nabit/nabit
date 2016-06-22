@@ -40,5 +40,22 @@
 
   };
 
+  bookmarkController.testForm = function() {
+    $('#form-submit').on('click', function() {
+      var title = $('#titleinfo').val();
+      var url = $('#urlinfo').val();
+      $.ajax({
+        type: 'POST',
+        url: '/users/user/bookmark',
+        data: {title: title, url: url},
+        success: function(data) {
+          console.log('data', data);
+        }
+      });
+    });
+    return false;
+  };
+  bookmarkController.testForm();
+
   module.bookmarkController = bookmarkController;
 })(window);

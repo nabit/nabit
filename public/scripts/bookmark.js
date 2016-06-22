@@ -17,7 +17,6 @@
 
   };
 
-
   Bookmarks.loadAll = function(datas) {
     Bookmarks.all = datas.map(function(i) {
       return new Bookmarks(i);
@@ -28,22 +27,21 @@
 
   };
 
-  Bookmarks.testForm = function() {
-    $('#form-submit').on('click', function() {
-      var title = $('#titleinfo').val();
-      var url = $('#urlinfo').val();
-      $.ajax({
-        type: 'POST',
-        url: '/users/user/bookmark',
-        data: {title: title, url: url},
-        success: function(data) {
-          console.log('data', data);
-        }
-      });
-    });
-    return false;
-  };
 
-  Bookmarks.testForm();
   module.Bookmarks = Bookmarks;
 })(window);
+
+//
+// javascript:(function(){
+//   var title = $('document.title');
+//   var url = $('window.location.href');
+//   $.ajax({
+//     type: 'POST',
+//     url: '/users/user/bookmark',
+//     data: {title: title, url: url},
+//     success: function(data) {
+//       console.log('data', data);
+//     }
+//   });
+//   return false;
+// }());
