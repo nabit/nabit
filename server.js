@@ -27,11 +27,10 @@ function Bookmark(opts) {
 
 var activeUser = new User(
   {
-    id : 2,
-    username : 'unknown',
-    bookmarks : [new Bookmark({id: 1, user_id: 2, title: 'New York Times', url: 'https://www.nytimes.com', timestamp: new Date(2012,0,1)}),
-                 new Bookmark({id: 2, user_id: 2, title: 'BBC', url: 'https://www.bbb.com', timestamp: new Date(2011,0,1)}),
-                 new Bookmark({id: 3, user_id: 2, title: 'Wayback Machine', url: 'https://archive.org/web/', timestamp: new Date(2010,0,1)})]
+    id : 1,
+    username : 'admin',
+    bookmarks : [new Bookmark({id: 1, user_id: 2, title: 'ESPN', url: 'https://espn.go.com', timestamp: new Date(2012,0,1)}),
+                 new Bookmark({id: 2, user_id: 2, title: 'CodeFellows', url: 'https://www.codefellows.com', timestamp: new Date(2011,0,1)})]
   }
 );
 
@@ -42,14 +41,13 @@ db.serialize(function() {
   db.run('CREATE TABLE if not exists users (username VARCHAR(150), password VARCHAR(150))');
   db.run('CREATE TABLE if not exists bookmarks (user_id INT, url VARCHAR(150), title VARCHAR(150), timestamp INT)');
 
-  // // uncomment below for dummy data to fill up an empty table
-  //
-  // db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unkown', '');
-  // db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
-  //       activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
-  //       activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp,
-  //       activeUser.id, activeUser.bookmarks[2].url, activeUser.bookmarks[2].title, activeUser.bookmarks[2].timestamp
-  //       );
+  // uncomment below for dummy data to fill up an empty table
+
+  db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unknown', '');
+  db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
+        activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
+        activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp
+        );
 
 });
 
@@ -96,9 +94,41 @@ app.get('/users/:username',
           username : row.username,
           bookmarks : []
         }
-      );
-      next();
-    });
+      ),
+      db.each('SELECT *, rowid FROM bookmarks WHERE user_id=?', activeUser.id, function(err, row){
+        bookmark = new Bookmark(
+          {
+            id : row.rowid,
+            user_id : row.user_id,
+            title: row.title,
+            url: row.url,
+            timestamp: row.timestamp
+          }
+        );
+        activeUser.bookmarks.push(bookmark);
+        console.log(activeUser);
+      });
+    }),
+
+  // function(request, response, next){
+  //   // var bookmark;
+  //   // db.each('SELECT *, rowid FROM bookmarks WHERE user_id=?', activeUser.id, function(err, row){
+  //   //   bookmark = new Bookmark(
+  //   //     {
+  //   //       id : row.rowid,
+  //   //       user_id : row.user_id,
+  //   //       title: row.title,
+  //   //       url: row.url,
+  //   //       timestamp: row.timestamp
+  //   //     }
+  //   //   );
+  //   //   activeUser.bookmarks.push(bookmark);
+  //   //   console.log(activeUser);
+  //     // next();
+  //   });
+
+    next();
+
   },
 
   function(request, response) {

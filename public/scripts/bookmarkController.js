@@ -1,13 +1,12 @@
 (function(module){
 
   var bookmarkController = {};
-  var user = 'unknown';
+  // var user = 'unknown';
 
   bookmarkController.getUser = function(username, next){
     console.log(username);
 
     //pretend authentication has happened
-
     $.ajax({
       url: '/users/' + username,
       type: 'GET',
