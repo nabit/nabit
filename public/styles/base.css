@@ -31,6 +31,15 @@
 #practice-form{
   width: 60%;
 }
+
+nav {
+  display: inline-block;
+    float: right;
+    width: 35%;
+    /* margin-bottom: 50px; */
+}
+
+
 nav ul {
     display: flex;
     list-style-type: none;
@@ -51,4 +60,10 @@ nav li {
 }
 a {
     text-decoration: none;
+}
+
+
+.add-bookmark-form {
+    display: inline-block;
+    width: 50%;
 }

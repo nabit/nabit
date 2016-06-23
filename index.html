@@ -13,9 +13,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
-    <title>NabIt</title>
-
     <!-- <script id="carousel-reminder-template" type="text/x-handlebars-template"> -->
 
     <!-- </script> -->
@@ -81,176 +78,184 @@
             </a>
         </div>
     </script>
+
 </head>
 
-<body>
-    <header>NabIt
+<header>
+    <title>
+        NabIt
+    </title>
 
-        <nav>
-            <ul class="nabit-ul">
-                <li id=burger-menu class="nabit-li">
-                </li>
-                <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Login</a>
+    <nav>
+        <ul class="nabit-ul">
+            <li id=burger-menu class="nabit-li">
+            </li>
+            <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Login</a>
 
-                </li>
-                <li class="nabit-li"><a href="#" id="logout-button">
-                Logout
+            </li>
+            <li class="nabit-li"><a href="#" id="logout-button">
+            Logout</a>
             </li>
         </ul>
     </nav>
-  </header>
- <!-- ===============MAIN SECTION==================== -->
+</header>
+
+<body>
+
+    <!-- ===============MAIN SECTION==================== -->
     <main>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-              <li data-target="#myCarousel" data-slide-to="4"></li>
-          </ol>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                  <iframe id="frame" src="http://www.bing.com" scrolling="no">
-                  </iframe>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <iframe id="frame" src="http://www.bing.com" scrolling="no">
+                    </iframe>
 
-                  <div class="carousel-caption">
-                      <h1>{{url-Title}}</h1>
-                  </div>
-
-              </div>
-
-              <div class="item">
-                <iframe id="frame" src="https://www.bbc.com/" scrolling="no">
-                </iframe>
-                  <div class="carousel-caption">
-                      <h1>{{url-Title}}</h1>
-                  </div>
-              </div>
-
-              <div class="item">
-                <iframe id="frame" src="https://www.nytimes.com/" scrolling="no">
-                </iframe>
-                  <div class="carousel-caption">
-                      <h1>{{url-Title}}</h1>
-                  </div>
-              </div>
-
-              <div class="item">
-                <iframe id="frame" src="https://www.google.com" scrolling="no">
-                </iframe>
-                  <div class="carousel-caption">
-                      <h1>{{url-Title}}</h1>
-                  </div>
-              </div>
-
-              <div class="item">
-                <iframe id="frame" src="https://www.yahoo.com/" scrolling="no">
-                </iframe>
-                  <div class="carousel-caption">
-                      <h1>{{url-Title}}</h1>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-          </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="carousel-caption">
+                        <h1>{{url-Title}}</h1>
                     </div>
 
-                    <div id="carouselRecent">
-                    </div>
+                </div>
 
-                    <!-- <div id="search-bar">
+                <div class="item">
+                    <iframe id="frame" src="https://www.bbc.com/" scrolling="no">
+                    </iframe>
+                    <div class="carousel-caption">
+                        <h1>{{url-Title}}</h1>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <iframe id="frame" src="https://www.nytimes.com/" scrolling="no">
+                    </iframe>
+                    <div class="carousel-caption">
+                        <h1>{{url-Title}}</h1>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <iframe id="frame" src="https://www.google.com" scrolling="no">
+                    </iframe>
+                    <div class="carousel-caption">
+                        <h1>{{url-Title}}</h1>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <iframe id="frame" src="https://www.yahoo.com/" scrolling="no">
+                    </iframe>
+                    <div class="carousel-caption">
+                        <h1>{{url-Title}}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div id="carouselRecent">
+        </div>
+
+        <!-- <div id="search-bar">
             <input id='search-box' placeholder=''>
         </div> -->
 
 
-                    <div id="carouselRemind">
+        <div id="carouselRemind">
 
-                    </div>
+        </div>
 
-                    </main>
-                    <div class="modal modal-background" id="login" role="form">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <img id="cross-button" src="assets/cross.png" alt="cross">
-                                <div class="modal-header">
-                                    <h1>Login</h1>
-                                    <div class="modal-body">
-                                        <form role="form">
-                                            <div class="form-group">
-                                                <label for="username">Username:</label>
-                                                <input type="text" class="form-control" id="username">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pwd">Password:</label>
-                                                <input type="password" class="form-control" id="pwd">
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Remember me</label>
-                                            </div>
-                                            <button id='login-btn' type="submit" class="btn btn-default">Submit</button>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <section id='modale-addTags'>
-
-    <input id='input-box' placeholder=''>
-    </section> -->
-                  <section><div></div>
-                    <div class="modal-body" id="test-form">
-                        <form role="form" id="practice-form">
+    </main>
+    <div class="modal modal-background" id="login" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <img id="cross-button" src="assets/cross.png" alt="cross">
+                <div class="modal-header">
+                    <h1>Login</h1>
+                    <div class="modal-body">
+                        <form role="form">
                             <div class="form-group">
-                                <label for="username">Title:</label>
-                                <input type="text" class="form-control" id="titleinfo">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username">
                             </div>
                             <div class="form-group">
-                                <label for="pwd">Url:</label>
-                                <input type="text" class="form-control" id="urlinfo">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
                             </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox"> Remember me</label>
                             </div>
-                            <button type="submit" class="btn btn-default" id="form-submit">Submit</button>
+                            <button id='login-btn' type="submit" class="btn btn-default">Submit</button>
+
                         </form>
                     </div>
-                    <div></div>
-                  </section>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <!-- vender scripts -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-                    <script type="text/javascript" src="public/vendor/handlebars.js"></script>
-                    <script type="text/javascript" src="public/vendor/page.js"></script>
+    <!-- <section id='modale-addTags'>
 
-                    <!--our scripts -->
-                    <script type="text/javascript" src="public/scripts/bookmark.js"></script>
-                    <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
-                    <script type="text/javascript" src="public/scripts/everyBkmController.js"></script>
-                    <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
-                    <!-- <script src="public/scripts/routes.js"></script> -->
+    <input id='input-box' placeholder=''>
+    </section> -->
+    <section class="add-bookmark-form">
+        <div></div>
+        <div class="modal-body" id="test-form">
+            <form role="form" id="practice-form">
+                <div class="form-group">
+                    <H1>Add Bookmark</H1>
+                    <label for="username">Title:</label>
+                    <input type="text" class="form-control" id="titleinfo">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Url:</label>
+                    <input type="text" class="form-control" id="urlinfo">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-default" id="form-submit">Submit</button>
+            </form>
+        </div>
+        <div></div>
+    </section>
 
-                    <script src="public/scripts/user.js"></script>
-                    <script src="public/scripts/userController.js"></script>
-                    <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
-                    <script src="public/scripts/routes.js"></script>
+    <!-- vender scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="public/vendor/handlebars.js"></script>
+    <script type="text/javascript" src="public/vendor/page.js"></script>
+
+    <!--our scripts -->
+    <script type="text/javascript" src="public/scripts/bookmark.js"></script>
+    <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
+    <script type="text/javascript" src="public/scripts/everyBkmController.js"></script>
+    <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
+    <!-- <script src="public/scripts/routes.js"></script> -->
+
+    <script src="public/scripts/user.js"></script>
+    <script src="public/scripts/userController.js"></script>
+    <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
+    <script src="public/scripts/routes.js"></script>
 
 
 </body>
