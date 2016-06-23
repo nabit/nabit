@@ -1,6 +1,7 @@
 var express = require('express'),
   port = process.env.PORT || 5000,
   app = express(),
+  cors = require('cors'),
   bodyParser = require('body-parser'),
   sqlite3 = require('sqlite3').verbose(),
   cors = require('cors'),
@@ -223,7 +224,7 @@ app.delete('/users/:username/bookmarks/:id',
 
 // );
 //
-// 
+//
 // app.post('/users/user/bookmark', function(request, response){
 //   var title = request.body.title;
 //   var url = request.body.url;

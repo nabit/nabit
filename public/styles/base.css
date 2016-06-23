@@ -31,3 +31,39 @@
 #practice-form{
   width: 60%;
 }
+
+nav {
+  display: inline-block;
+    float: right;
+    width: 35%;
+    /* margin-bottom: 50px; */
+}
+
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 1%;
+    margin-bottom: -1%;
+    text-align: center;
+    width: 90%;
+    border: 1px black solid;
+}
+nav li {
+    display: inline-block;
+    float: right;
+    border: 1px black solid;
+    margin: 0 auto;
+    padding: 1%;
+    text-decoration: none;
+    width: 20%;
+}
+a {
+    text-decoration: none;
+}
+
+
+.add-bookmark-form {
+    display: inline-block;
+    width: 50%;
+}
