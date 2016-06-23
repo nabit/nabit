@@ -42,14 +42,14 @@ db.serialize(function() {
   db.run('CREATE TABLE if not exists users (username VARCHAR(150), password VARCHAR(150))');
   db.run('CREATE TABLE if not exists bookmarks (user_id INT, url VARCHAR(150), title VARCHAR(150), timestamp INT)');
 
-//   // uncomment below for dummy data to fill up an empty table
-//
-//   db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unkown', '');
-//   db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
-//         activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
-//         activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp,
-//         activeUser.id, activeUser.bookmarks[2].url, activeUser.bookmarks[2].title, activeUser.bookmarks[2].timestamp
-//         );
+  // // uncomment below for dummy data to fill up an empty table
+  //
+  // db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unkown', '');
+  // db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
+  //       activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
+  //       activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp,
+  //       activeUser.id, activeUser.bookmarks[2].url, activeUser.bookmarks[2].title, activeUser.bookmarks[2].timestamp
+  //       );
 
 });
 
@@ -66,6 +66,7 @@ var printTables = function(){
   });
 };
 
+//log what's in the tables at startup
 printTables();
 
 //_______initialize____________________//
