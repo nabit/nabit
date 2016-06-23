@@ -3,8 +3,9 @@
 
 
   function Bookmark(title, url, timestamp) {
-    this.title = input.title;
-    this.url = input.url;
+    this.title = title;
+    this.url = url;
+    this.timestamp = timestamp;
 
   }
 

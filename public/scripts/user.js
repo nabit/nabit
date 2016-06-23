@@ -1,8 +1,8 @@
 (function (module) {
 
-  function User(id, user, bookmarks) {
-    this.id = input.id;
-    this.user = input.user;
+  function User(id, username, bookmarks) {
+    this.id = id;
+    this.username = username;
     this.bookmarks = bookmarks;
   };
 

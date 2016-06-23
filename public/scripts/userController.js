@@ -1,6 +1,8 @@
 (function(module) {
 
-  userController = {};
+  userController = {
+    activeUser : null
+  };
 
   userController.init = function() {
     console.log();
@@ -10,7 +12,7 @@
   //
   userController.handleLoginSubmit = function() {
     $('#login-btn').on('click', function(){
-      bookmarkController.getUserInfo($('#username').val());
+      bookmarkController.getUser($('#username').val());
     });
   };
 
