@@ -1,10 +1,11 @@
 var express = require('express'),
   port = process.env.PORT || 5000,
   app = express(),
+  cors = require('cors'),
   bodyParser = require('body-parser'),
   sqlite3 = require('sqlite3').verbose(),
   db = new sqlite3.Database('urlData.db');
-
+app.use(cors());
 var user = {
   id : null,
   name : null,

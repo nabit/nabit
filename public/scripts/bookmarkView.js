@@ -4,6 +4,7 @@
   bookmarkView.modal = function() {
     $('#cross-button').on('click', function() {
       $('#login').removeClass('show');
+      $('div.modal-backdrop').removeClass('modal-backdrop');
     });
 
     $('#login-button').on('click', function() {

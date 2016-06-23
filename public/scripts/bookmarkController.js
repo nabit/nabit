@@ -30,13 +30,14 @@
     });
   };
 
-  bookmarkController.testForm = function() {
-    $('#form-submit').on('click', function() {
-      var title = $('#titleinfo').val();
-      var url = $('#urlinfo').val();
+  bookmarkController.testForm =
+
+  javascript: function() {
+      var title = $('document.title');
+      var url = $('window.location.href');
       $.ajax({
         type: 'POST',
-        url: '/users/user/bookmark',
+        url: 'http://localhost:5000/users/user/bookmark',
         data: {title: title, url: url},
         success: function(data) {
           console.log('data', data);
