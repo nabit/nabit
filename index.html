@@ -86,15 +86,18 @@
     <div>
         <div>
             <h1>NabIt</h1>
-            <nav>
-                <ul class="nabit-ul">
-                    <li id=burger-menu class="nabit-li"></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Bookmarks</a></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal"></a></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Login</a></li>
-                    <li class="nabit-li"><a href="#" id="logout-button">Logout</a></li>
-                </ul>
-            </nav>
+            <div class="space">
+                <nav>
+                    <ul class="nabit-ul">
+                        <!-- <li id=burger-menu class="nabit-li"></li> -->
+                        <li class="nabit-li"><a href="/history" id="history-link" class="links-css">History</a></li>
+                        <li class="nabit-li"><a href="/setup" id="setup-link" class="links-css">Setup</a></li>
+                        <li class="nabit-li"><a href="/add" id="add-link" class="links-css" data-toggle="modal">Bookmark</a></li>
+                        <li class="nabit-li"><a href="#login" id="login-button" class="links-css" data-toggle="modal">Login</a></li>
+                        <!-- <li class="nabit-li"><a href="#" id="logout-button">Logout</a></li> -->
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 
@@ -114,7 +117,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <iframe id="frame" src="http://www.bing.com" scrolling="no">
+                    <iframe id="frame" src="https://www.bing.com/" scrolling="no">
                     </iframe>
 
                     <div class="carousel-caption">
@@ -140,7 +143,7 @@
                 </div>
 
                 <div class="item">
-                    <iframe id="frame" src="https://www.google.com" scrolling="no">
+                    <iframe id="frame" src="" scrolling="no">
                     </iframe>
                     <div class="carousel-caption">
                         <h1>{{url-Title}}</h1>
@@ -148,7 +151,7 @@
                 </div>
 
                 <div class="item">
-                    <iframe id="frame" src="https://www.yahoo.com/" scrolling="no">
+                    <iframe id="frame" src="" scrolling="no">
                     </iframe>
                     <div class="carousel-caption">
                         <h1>{{url-Title}}</h1>
@@ -245,7 +248,7 @@
     <!--our scripts -->
     <script type="text/javascript" src="public/scripts/bookmark.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
-    <script type="text/javascript" src="public/scripts/everyBkmController.js"></script>
+    <script type="text/javascript" src="public/scripts/allBkmController.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
     <!-- <script src="public/scripts/routes.js"></script> -->
 

@@ -28,10 +28,10 @@
 }
 nav {
     display: inline-block;
-    width: 35%;
+    width: 50%;
     margin: 0 auto;
     margin-right: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     /* margin-bottom: 50px; */
 }
 nav ul {
@@ -39,8 +39,9 @@ nav ul {
     list-style-type: none;
     padding: 1%;
     margin-bottom: -1%;
-    text-align: center;
-    width: 100%;
+    text-align: right;
+    text-decoration: none;
+    /*width: 100%;*/
     /*border: 1px black solid;*/
     margin: 0;
 }
@@ -51,16 +52,28 @@ nav li {
     margin: 0 auto;
     padding: 1%;
     text-decoration: none;
-    width: 20%;
+    list-style-type: none;
+    /*width: 100%;*/
 }
-a {
+.links-css {
+    color: black;
     text-decoration: none;
+    list-style-type: none;
 }
+:hover {
+    color: gray;
+    text-decoration: none;
+    list-style-type: none;
+
+}
+
 .add-bookmark-form {
     display: inline-block;
     width: 50%;
 }
-.aside-spacer {}
+.spacer {
+  width: 100%;
+}
 
 /*
 var title = $('document.title');
