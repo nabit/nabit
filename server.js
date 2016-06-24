@@ -80,217 +80,74 @@ app.get('/', function(request, response) {
   response.sendFile('index.html', { root: '.' });
 });
 
+
 //_______REST routes____________________//
 
-//GET user
-app.get('/users/:username/:password',
+//GET user_id by username and password
+app.get('/users/:username/:password', function(request, response){
+  db.get('SELECT username, rowid FROM users WHERE username=?', request.params.username, function(err, row){
+    response.json(row.rowid);
+  });
+});
 
-  function(request, response, next){
-
-    db.get('SELECT *, rowid FROM users WHERE username=?', request.params.username, function(err, row){
-      activeUser = new User(
-        {
-          id : row.rowid,
-          username : row.username,
-          bookmarks : []
-        }
-      ),
-      db.each('SELECT *, rowid FROM bookmarks WHERE user_id=?', activeUser.id, function(err, row){
-        bookmark = new Bookmark(
-          {
-            id : row.rowid,
-            user_id : row.user_id,
-            title: row.title,
-            url: row.url,
-            timestamp: row.timestamp
-          }
-        );
-        activeUser.bookmarks.push(bookmark);
-      });
-    }),
-    next();
-  },
-
-  function(request, response) {
-    console.log('sending user:', activeUser);
-    response.json(activeUser);
-  }
-);
-
-//POST user (create a new user)
-app.post('/users/:username',
-
-  function(request, response, next){
-
-    console.log('request', request.body);
-
-    var parameters = [request.params.username, request.params.password];
-
-    db.run('INSERT INTO users (username, password) VALUES (?, ?)', parameters);
-    db.get('SELECT *, rowid FROM users WHERE username=?', request.params.username, function(err, row){
-      request.user = new User(
-        {
-          id : row.rowid,
-          username : row.username,
-          bookmarks : []
-        }
-      );
-      printTables();
-      next();
-    });
-  },
-
-  function(request, response) {
-    console.log('user:', request.user);
-    response.send(request.user);
-  }
-);
-
-//DELETE user by username
-app.delete('/users/:username',
-
-  function(request, response, next){
-    //db statement
-  },
-  function(request, response) {
-
-    //send something
-    response.send();
-  }
-);
+//GET username by user_id
+app.get('/users/:id', function(request, response){
+  db.get('SELECT username, rowid FROM users WHERE rowid=?', request.params.id, function(err, row){
+    response.json(row.username);
+  });
+});
 
 //GET all user bookmarks
-app.get('/users/:id/bookmarks',
-
-  function(request, response, next){
-
-    db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
-      request.bookmarks = rows.map(function(row) {
-        return new Bookmark({
-          id : row.rowid,
-          user_id : row.user_id,
-          title: row.title,
-          url: row.url,
-          timestamp: row.timestamp
-        });
+app.get('/users/:id/bookmarks/all', function(request, response, next){
+  db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
+    request.bookmarks = rows.map(function(row) {
+      return new Bookmark({
+        id : row.rowid,
+        user_id : row.user_id,
+        title: row.title,
+        url: row.url,
+        timestamp: row.timestamp
       });
-
-      printTables();
-      next();
     });
-  },
+    printTables();
+    response.json(request.bookmarks);
+  });
+});
 
-  function(request, response) {
-    console.log('bookmarks:', request.bookmarks);
-    response.send(request.bookmarks);
-  }
+//POST user (create a new user)
+app.post('/users/:username/:password', function(request, response){
+  var parameters = [request.params.username, request.params.password];
 
-);
-
-//GET user bookmark by id
-app.get('/users/:username/bookmarks/:id',
-
-  function(request, response, next){
-    //db statement
-  },
-  function(request, response) {
-
-    //send something
-    response.send();
-  }
-);
+  db.run('INSERT INTO users (username, password) VALUES (?, ?)', parameters);
+  db.get('SELECT *, rowid FROM users WHERE username=?', request.params.username, function(err, row){
+    console.log('Adding new user:', request.params.username);
+    printTables();
+    response.json(row.rowid);
+  });
+});
 
 //POST user bookmark
-app.post('/users/:id/:title/:url',
+app.post('/users/:id/:title/:url', function(request, response){
+  var parameters = [request.params.id, request.params.title, request.params.url, new Date()];
 
-  function(request, response, next){
-
-    var parameters = [request.params.id, request.params.title, request.params.url, new Date()];
-
-    db.run('INSERT INTO bookmarks (user_id, title, url, timestamp) VALUES (?, ?, ?, ?)', parameters);
-    db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
-      request.bookmarks = rows.map(function(row) {
-        return new Bookmark({
-          id : row.rowid,
-          user_id : row.user_id,
-          title: row.title,
-          url: row.url,
-          timestamp: row.timestamp
-        });
+  db.run('INSERT INTO bookmarks (user_id, title, url, timestamp) VALUES (?, ?, ?, ?)', parameters);
+  db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
+    request.bookmarks = rows.map(function(row) {
+      return new Bookmark({
+        id : row.rowid,
+        user_id : row.user_id,
+        title: row.title,
+        url: row.url,
+        timestamp: row.timestamp
       });
-      printTables();
-      next();
     });
-  },
-
-  function(request, response) {
-    console.log('bookmarks:', request.bookmarks);
+    printTables();
     response.send(request.bookmarks);
-  }
-);
-
-//DELETE user bookmark by id
-app.delete('/users/:username/bookmarks/:id',
-
-  function(request, response, next){
-    //db statement
-  },
-  function(request, response) {
-
-    //send something
-    response.send();
-  }
-);
-
-// app.get('/users/:username',
-//
-//   function(request, response, next) {
-//     var username = request.params.username;
-//     urlData = [];
-//     db.each('SELECT url FROM urlData', function(err, row) {
-//       urlData.push(row.url);
-//     }, next);
-//   },
-//
-//   function(request, response) {
-//     console.log('Request for urlData:', urlData);
-//     response.json(urlData);
-//   }
-
-// );
-//
-//
-// app.post('/users/user/bookmark', function(request, response){
-//   var title = request.body.title;
-//   var url = request.body.url;
-//   // db.run('INSERT INTO urlData VALUES (?)', bookmark);
-//   // console.log('add: ' + bookmark);
-//   // db.each('SELECT rowid AS id, url FROM urlData', function(err, row) {
-//   //   console.log(row.id + ': ' + row.url);
-//   // });
-//   console.log('Title= ' + title + 'and url=' + url);
-//   response.send({title : title, url : url});
-// });
+  });
+});
 
 //_______listen up!____________________//
 
 app.listen(port, function() {
   console.log('Server started on port ' + port + '!' );
 });
-
-
-//
-//
-// var title = $('document.title');
-// var url = window.location.href;
-// var title = document.title;
-//
-// console.log(document.title.val);
-//       $.ajax({
-//          type: 'POST',
-//     url: 'http://localhost:5000/users/' + 1 + '/' + title + '/' +  url,
-//         data: {title: title, url: url},
-//         success: function(data) {
-//           console.log('data', data);
-//         }
-//       });

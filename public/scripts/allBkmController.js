@@ -17,7 +17,7 @@
 
     // pretend authentication has happened
     $.ajax({
-      url: '/users/' + ,
+      url: '/users/' + id,
       type: 'GET',
       success: function(data, status, xhr) {
         console.log('bookmarks', data);
