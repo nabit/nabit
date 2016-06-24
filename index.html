@@ -16,7 +16,7 @@
     <!-- <script id="carousel-reminder-template" type="text/x-handlebars-template"> -->
 
     <!-- </script> -->
-    <title>NabIt: Bookmark Reminder</title>
+
     <script id="carousel-recent-template" type="text/x-handlebars-template">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -81,23 +81,26 @@
 
 </head>
 
-<body>
-    <!-- ===============NAV SECTION==================== -->
-    <div>
-        <div>
-            <h1>NabIt</h1>
-            <nav>
-                <ul class="nabit-ul">
-                    <li id=burger-menu class="nabit-li"></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Bookmarks</a></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal"></a></li>
-                    <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Login</a></li>
-                    <li class="nabit-li"><a href="#" id="logout-button">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+<header>
+    <title>
+        NabIt
+    </title>
 
+    <nav>
+        <ul class="nabit-ul">
+            <li id=burger-menu class="nabit-li">
+            </li>
+            <li class="nabit-li"><a href="#login" id="login-button" data-toggle="modal">Login</a>
+
+            </li>
+            <li class="nabit-li"><a href="#" id="logout-button">
+            Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
 
     <!-- ===============MAIN SECTION==================== -->
     <main>
@@ -214,7 +217,7 @@
     <input id='input-box' placeholder=''>
     </section> -->
     <section class="add-bookmark-form">
-        <aside class="aside-spacer"></aside>
+        <div></div>
         <div class="modal-body" id="test-form">
             <form role="form" id="practice-form">
                 <div class="form-group">
@@ -233,7 +236,7 @@
                 <button type="submit" class="btn btn-default" id="form-submit">Submit</button>
             </form>
         </div>
-        <aside class="aside-spacer"></aside>
+        <div></div>
     </section>
 
     <!-- vender scripts -->
@@ -247,11 +250,8 @@
     <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
     <script type="text/javascript" src="public/scripts/everyBkmController.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
-    <!-- <script src="public/scripts/routes.js"></script> -->
-
     <script src="public/scripts/user.js"></script>
     <script src="public/scripts/userController.js"></script>
-    <!-- <script type="text/javascript" src="scripts/bookmarkView.js"></script> -->
     <script src="public/scripts/routes.js"></script>
 
 

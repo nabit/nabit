@@ -106,7 +106,6 @@ app.get('/users/:username',
           }
         );
         activeUser.bookmarks.push(bookmark);
-        console.log(activeUser);
       });
     }),
 
@@ -132,6 +131,7 @@ app.get('/users/:username',
   },
 
   function(request, response) {
+    console.log('sending user:', activeUser);
     response.json(activeUser);
   }
 );
