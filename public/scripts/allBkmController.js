@@ -1,12 +1,12 @@
 (function(module) {
-  var everyBkmController = {};
+  var allBkmController = {};
 
-  everyBkmController.index = function() {
+  allBkmController.index = function() {
     // $('').hide();
     // $('').show();
 
     // repos.requestRepos(repoView.index);
   };
 
-  module.everyBkmController = everyBkmController;
+  module.allBkmController = allBkmController;
 })(window);

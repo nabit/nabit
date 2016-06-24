@@ -5,7 +5,7 @@
 }
 .modal-background {
     background-color: gray;
-    opacity: .8;
+    opacity: .9;
 }
 #cross-button:hover {
     width: 20px;
@@ -28,19 +28,20 @@
 }
 nav {
     display: inline-block;
-    width: 35%;
+    width: 30%;
     margin: 0 auto;
     margin-right: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     /* margin-bottom: 50px; */
 }
-nav ul {
+.nabit-ul {
     display: flex;
     list-style-type: none;
     padding: 1%;
     margin-bottom: -1%;
-    text-align: center;
-    width: 100%;
+    text-align: right;
+    text-decoration: none;
+    /*width: 100%;*/
     /*border: 1px black solid;*/
     margin: 0;
 }
@@ -51,28 +52,70 @@ nav li {
     margin: 0 auto;
     padding: 1%;
     text-decoration: none;
-    width: 20%;
+    list-style-type: none;
+    /*width: 100%;*/
 }
-a {
+.links-css {
+    color: black;
     text-decoration: none;
+    list-style-type: none;
+}
+:hover {
+    color: gray;
+    text-decoration: none;
+    list-style-type: none;
 }
 .add-bookmark-form {
     display: inline-block;
     width: 50%;
 }
-.aside-spacer {}
+.spacer {
+    width: 100%;
+}
+.space {
+    margin-top: -47px;
+}
+#footer div {
+    display: block;
+    width: 100%;
+    background-color: lightgray;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    font-family: courier;
+}
+, #footer {
+    background-color: gray;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+#footer-content {
+    margin-left: 30px;
+    padding-top: 16px;
+}
+#doc-link {
+    color: gray;
+    font-family: courier;
+}
+#title-logo {
+    margin-left: 50px;
+    color: gray;
+}
+.setup-page {
+    margin-left: 30px;
+}
 
-/*
-var title = $('document.title');
-      var url = window.location.href;
-    var title = document.title;
-console.log(document.title.val);
-      $.ajax({
-        type: 'POST',
-        url: 'http://nabit.herokuapp.com/users/admin/bookmarks/bookmark',
-        data: {title: title, url: url},
-        success: function(data) {
-          console.log('data', data);
-        }
-      });
-    return false;*/
+#header {
+  margin-bottom: 18px;
+}
+/*#header {
+    -webkit-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+    -moz-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+    box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+
+}*/
