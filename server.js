@@ -286,11 +286,11 @@ app.listen(port, function() {
 // var title = document.title;
 //
 // console.log(document.title.val);
-//       $.ajax({
-//          type: 'POST',
-//     url: 'http://localhost:5000/users/' + 1 + '/' + title + '/' +  url,
-//         data: {title: title, url: url},
-//         success: function(data) {
-//           console.log('data', data);
-//         }
-//       });
+//   $.ajax({
+//       type: 'POST',
+//       url: 'http://localhost:5000/users/' + 1 + '/' + title + '/' +  url,
+//       data: {title: title, url: url},
+//       success: function(data) {
+//         console.log('data', data);
+//       }
+//   });
