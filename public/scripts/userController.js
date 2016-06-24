@@ -25,6 +25,7 @@
   userController.init = function() {
     console.log('userController init');
     this.handleLoginSubmit();
+    this.handleSignupSubmit();
   };
 
   //
@@ -33,6 +34,35 @@
     $('#login-btn').on('click', function(e){
       e.preventDefault();
       self.getUser($('#username').val());
+      console.log($('#username').val());
+    });
+  };
+
+  userController.handleSignupSubmit = function() {
+    var self = this;
+    $('#signup-btn').on('click', function(e){
+      e.preventDefault();
+      self.postUser($('#username').val());
+      console.log($('#username').val());
+    });
+  };
+
+  userController.postUser = function(username, next){
+    var self = this;
+    console.log(username);
+
+    // pretend authentication has happened
+    $.ajax({
+      url: '/users/' + username,
+      type: 'POST',
+      success: function(user, status, xhr) {
+        localStorage.setItem('userId', user.id);
+      },
+      error: function(data, status, xhr) {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
+      }
     });
   };
 

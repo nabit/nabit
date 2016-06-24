@@ -42,12 +42,12 @@ db.serialize(function() {
   db.run('CREATE TABLE if not exists bookmarks (user_id INT, url VARCHAR(150), title VARCHAR(150), timestamp INT)');
 
   // uncomment below for dummy data to fill up an empty table
-
-  db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unknown', '');
-  db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
-        activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
-        activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp
-        );
+  //
+  // db.run('INSERT INTO users (username, password) VALUES (?, ?), (?, ?)', 'admin', 'admin', 'unknown', '');
+  // db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?)',
+  //       activeUser.id, activeUser.bookmarks[0].url, activeUser.bookmarks[0].title, activeUser.bookmarks[0].timestamp,
+  //       activeUser.id, activeUser.bookmarks[1].url, activeUser.bookmarks[1].title, activeUser.bookmarks[1].timestamp
+  //       );
 
 });
 
@@ -83,7 +83,7 @@ app.get('/', function(request, response) {
 //_______REST routes____________________//
 
 //GET user
-app.get('/users/:username',
+app.get('/users/:username/:password',
 
   function(request, response, next){
 
@@ -108,26 +108,7 @@ app.get('/users/:username',
         activeUser.bookmarks.push(bookmark);
       });
     }),
-
-  // function(request, response, next){
-  //   // var bookmark;
-  //   // db.each('SELECT *, rowid FROM bookmarks WHERE user_id=?', activeUser.id, function(err, row){
-  //   //   bookmark = new Bookmark(
-  //   //     {
-  //   //       id : row.rowid,
-  //   //       user_id : row.user_id,
-  //   //       title: row.title,
-  //   //       url: row.url,
-  //   //       timestamp: row.timestamp
-  //   //     }
-  //   //   );
-  //   //   activeUser.bookmarks.push(bookmark);
-  //   //   console.log(activeUser);
-  //     // next();
-  //   });
-
     next();
-
   },
 
   function(request, response) {
@@ -136,20 +117,32 @@ app.get('/users/:username',
   }
 );
 
-//POST user
+//POST user (create a new user)
 app.post('/users/:username',
 
   function(request, response, next){
-    //db statement
-    console.log(request.params.username);
-    next();
+
+    console.log('request', request.body);
+
+    var parameters = [request.params.username, request.params.password];
+
+    db.run('INSERT INTO users (username, password) VALUES (?, ?)', parameters);
+    db.get('SELECT *, rowid FROM users WHERE username=?', request.params.username, function(err, row){
+      request.user = new User(
+        {
+          id : row.rowid,
+          username : row.username,
+          bookmarks : []
+        }
+      );
+      printTables();
+      next();
+    });
   },
 
   function(request, response) {
-    console.log(request.params);
-    //send something
-    // response.send(1);
-    response.sendStatus(1);
+    console.log('user:', request.user);
+    response.send(request.user);
   }
 );
 
@@ -194,34 +187,31 @@ app.get('/users/:username/bookmarks/:id',
 );
 
 //POST user bookmark
-app.post('/users/:username/bookmarks/bookmark',
+app.post('/users/:id/:title/:url',
 
   function(request, response, next){
 
-    var bookmark = new Bookmark({
-      id : null,
-      user_id : activeUser.id,
-      title : request.body.title,
-      url : request.body.url,
-      timestamp : new Date()
-    });
+    var parameters = [request.params.id, request.params.title, request.params.url, new Date()];
 
-    var parameters = [
-      bookmark.user_id,
-      bookmark.title,
-      bookmark.url,
-      bookmark.timestamp
-    ];
-
-    db.run('INSERT INTO bookmarks (user_id, url, title, timestamp) VALUES (?, ?, ?, ?)', parameters, function(err, row){
+    db.run('INSERT INTO bookmarks (user_id, title, url, timestamp) VALUES (?, ?, ?, ?)', parameters);
+    db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
+      request.bookmarks = rows.map(function(row) {
+        return new Bookmark({
+          id : row.rowid,
+          user_id : row.user_id,
+          title: row.title,
+          url: row.url,
+          timestamp: row.timestamp
+        });
+      });
+      printTables();
       next();
     });
   },
 
   function(request, response) {
-    printTables();
-    //send something
-    response.send();
+    console.log('bookmarks:', request.bookmarks);
+    response.send(request.bookmarks);
   }
 );
 
