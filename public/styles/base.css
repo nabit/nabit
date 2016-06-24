@@ -28,13 +28,13 @@
 }
 nav {
     display: inline-block;
-    width: 50%;
+    width: 30%;
     margin: 0 auto;
     margin-right: 0px;
     margin-bottom: 10px;
     /* margin-bottom: 50px; */
 }
-nav ul {
+.nabit-ul {
     display: flex;
     list-style-type: none;
     padding: 1%;
@@ -64,47 +64,58 @@ nav li {
     color: gray;
     text-decoration: none;
     list-style-type: none;
-
 }
-
 .add-bookmark-form {
     display: inline-block;
     width: 50%;
 }
 .spacer {
-  width: 100%;
+    width: 100%;
 }
-
 .space {
-  margin-top: -47px;
+    margin-top: -47px;
 }
-
-
-
-#footer {
-  background-color: gray;
-  color: aliceblue;
-  position: fixed;
-  display:
+#footer div {
+    display: block;
+    width: 100%;
+    background-color: lightgray;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    font-family: courier;
 }
-
- #title-logo {
-  margin-left: 50px;
-    margin-top: 8px;
+, #footer {
+    background-color: gray;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+#footer-content {
+    margin-left: 30px;
+    padding-top: 16px;
+}
+#doc-link {
+    color: gray;
+    font-family: courier;
+}
+#title-logo {
+    margin-left: 50px;
     color: gray;
 }
+.setup-page {
+    margin-left: 30px;
+}
 
-/*
-var title = $('document.title');
-      var url = window.location.href;
-    var title = document.title;
-console.log(document.title.val);
-      $.ajax({
-        type: 'POST',
-        url: 'http://nabit.herokuapp.com/users/admin/bookmarks/bookmark',
-        data: {title: title, url: url},
-        success: function(data) {
-          console.log('data', data);
-        }
-      });
-    return false;*/
+#header {
+  margin-bottom: 18px;
+}
+/*#header {
+    -webkit-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+    -moz-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+    box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
+
+}*/

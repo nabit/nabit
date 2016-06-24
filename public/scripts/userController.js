@@ -24,6 +24,7 @@
 
   userController.init = function() {
     console.log('userController init');
+    
     this.handleLoginSubmit();
   };
 
