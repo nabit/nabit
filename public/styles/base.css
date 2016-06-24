@@ -5,7 +5,7 @@
 }
 .modal-background {
     background-color: gray;
-    opacity: .8;
+    opacity: .9;
 }
 #cross-button:hover {
     width: 20px;
@@ -73,6 +73,25 @@ nav li {
 }
 .spacer {
   width: 100%;
+}
+
+.space {
+  margin-top: -47px;
+}
+
+
+
+#footer {
+  background-color: gray;
+  color: aliceblue;
+  position: fixed;
+  display:
+}
+
+ #title-logo {
+  margin-left: 50px;
+    margin-top: 8px;
+    color: gray;
 }
 
 /*
