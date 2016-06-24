@@ -13,7 +13,7 @@ function User(opts) {
   this.id = opts.id;
   this.username = opts.username;
   this.bookmarks = opts.bookmarks;
-};
+}
 
 function Bookmark(opts) {
   this.id = opts.id;
@@ -277,3 +277,20 @@ app.delete('/users/:username/bookmarks/:id',
 app.listen(port, function() {
   console.log('Server started on port ' + port + '!' );
 });
+
+
+//
+//
+// var title = $('document.title');
+// var url = window.location.href;
+// var title = document.title;
+//
+// console.log(document.title.val);
+//       $.ajax({
+//          type: 'POST',
+//     url: 'http://localhost:5000/users/' + 1 + '/' + title + '/' +  url,
+//         data: {title: title, url: url},
+//         success: function(data) {
+//           console.log('data', data);
+//         }
+//       });
