@@ -24,7 +24,7 @@
 
   userController.init = function() {
     console.log('userController init');
-    
+
     this.handleLoginSubmit();
     this.handleSignupSubmit();
   };
@@ -76,12 +76,10 @@
       url: '/users/' + username,
       type: 'GET',
       success: function(user, status, xhr) {
-        self.user = user;
-        console.log(status);
-        console.log('data served:', user);
-        console.log('saved', self.user);
+        localStorage.setItem('userId', user.id);
       },
       error: function(data, status, xhr) {
+        console.log(data);
         console.log(status);
         console.log(xhr);
       }

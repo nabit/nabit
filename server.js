@@ -160,17 +160,31 @@ app.delete('/users/:username',
 );
 
 //GET all user bookmarks
-app.get('/users/:username/bookmarks',
+app.get('/users/:id/bookmarks',
 
-  //la la pretend authentication is done
   function(request, response, next){
 
-  },
-  function(request, response) {
+    db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.id, function(err, rows){
+      request.bookmarks = rows.map(function(row) {
+        return new Bookmark({
+          id : row.rowid,
+          user_id : row.user_id,
+          title: row.title,
+          url: row.url,
+          timestamp: row.timestamp
+        });
+      });
 
-    //send something
-    response.send();
+      printTables();
+      next();
+    });
+  },
+
+  function(request, response) {
+    console.log('bookmarks:', request.bookmarks);
+    response.send(request.bookmarks);
   }
+
 );
 
 //GET user bookmark by id
