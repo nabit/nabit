@@ -2,11 +2,11 @@
 (function(module) {
 
 
-  function Bookmark(title, url, timestamp) {
-    this.title = title;
-    this.url = url;
-    this.timestamp = timestamp;
-
+  function Bookmark(opts) {
+    this.id = opts.id;
+    this.title = opts.title;
+    this.url = opts.url;
+    this.timestamp = opts.timestamp;
   }
 
   // Bookmark.prototype.toHtml = function() {

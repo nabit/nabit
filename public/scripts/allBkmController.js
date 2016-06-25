@@ -1,23 +1,24 @@
 (function(module) {
   var allBkmController = {};
 
-  allBkmController.handleSignupSubmit = function() {
+  allBkmController.handleAllBookmarksSubmit = function() {
     var self = this;
     $('#history-link').on('click', function(e){
       e.preventDefault();
       var id = localStorage.getItem('userId');
+      console.log('id', id);
       if(id) {
-        self.getBookmarksById(id);
+        self.getAllBookmarksByUserId(id);
       }
     });
   };
 
-  allBkmController.getBookmarksById = function(id) {
+  allBkmController.getAllBookmarksByUserId = function(id) {
     var self = this;
 
     // pretend authentication has happened
     $.ajax({
-      url: '/users/' + id,
+      url: '/users/' + id +'/bookmarks/all',
       type: 'GET',
       success: function(data, status, xhr) {
         console.log('bookmarks', data);
@@ -31,9 +32,22 @@
     });
   };
 
-  allBkmController.showBookmarks = function(bookmarks){
-    $('#my-bookmarks').append(data);
+  allBkmController.showBookmarks = function(data){
+    console.log('here', data);
+    data.map(function(bookmark){
+      var html = '';
+      html += '<li class="bookmark">';
+      html += '<a href=' + bookmark.url + '>' + bookmark.title + '</a>';
+      html += '<span>' + new Date(bookmark.timestamp) + '</span>';
+      html += '</li>';
+      console.log('html', html);
+      return html;
+    }).forEach(function(bookmark){
+      $('#my-bookmarks-temp').append(bookmark);
+    });
   };
+
+  allBkmController.handleAllBookmarksSubmit();
 
   module.allBkmController = allBkmController;
 })(window);

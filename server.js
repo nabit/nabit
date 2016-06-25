@@ -127,7 +127,7 @@ app.post('/users/:username/:password', function(request, response){
 });
 
 //POST user bookmark
-app.post('/users/:id/:title/:url', function(request, response){
+app.post('/users/:id/bookmark/:title/:url', function(request, response){
   var parameters = [request.params.id, request.params.title, request.params.url, new Date()];
 
   db.run('INSERT INTO bookmarks (user_id, title, url, timestamp) VALUES (?, ?, ?, ?)', parameters);

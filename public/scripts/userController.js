@@ -1,5 +1,7 @@
 (function(module) {
 
+  var userController = {};
+
   userController.init = function() {
     console.log('userController init');
 
