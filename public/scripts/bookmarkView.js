@@ -22,6 +22,17 @@
     });
 
   };
+  //
+  // bookmarkView.setup = function() {
+  //   // $('#logout-button').addClass('hide');
+  //   // $('#login-button').on('click', function() {
+  //   //   $('#login').addClass('show');
+  //   //   $('#logout-button').removeClass('hide').addClass('show');
+  //   // });
+  //
+  // };
+
+
 
   bookmarkView.modal();
   bookmarkView.nav();
