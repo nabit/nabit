@@ -146,6 +146,25 @@ app.post('/users/:id/bookmark/:title/:url', function(request, response){
   });
 });
 
+//DELETE bookmars
+app.delete('/users/:user_id/bookmark/:id', function(request, response){
+  console.log('delete', request.params.id);
+  db.run('DELETE FROM bookmarks WHERE rowid=?', request.params.id);
+  db.all('SELECT *, rowid FROM bookmarks WHERE user_id=?', request.params.user_id, function(err, rows){
+    request.bookmarks = rows.map(function(row) {
+      return new Bookmark({
+        id : row.rowid,
+        user_id : row.user_id,
+        title: row.title,
+        url: row.url,
+        timestamp: row.timestamp
+      });
+    });
+    printTables();
+    response.send(request.bookmarks);
+  });
+});
+
 //_______listen up!____________________//
 
 app.listen(port, function() {

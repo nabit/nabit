@@ -35,8 +35,10 @@
     $.ajax({
       url: '/users/' + username + '/' + password,
       type: 'POST',
+
       success: function(user, status, xhr) {
         localStorage.setItem('userId', user);
+
       },
       error: function(data, status, xhr) {
         console.log(data);
@@ -54,6 +56,7 @@
     $.ajax({
       url: '/users/' + username + '/' + password,
       type: 'GET',
+
       success: function(user, status, xhr) {
         localStorage.setItem('userId', user);
         allBkmController.getAllBookmarksByUserId(user);
