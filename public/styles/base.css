@@ -109,10 +109,20 @@ nav li {
 .setup-page {
     margin-left: 30px;
 }
-
 #header {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
+#remove-btn {
+    position: inherit;
+    margin: 5px;
+    padding: 7px;
+}
+iframe {
+    -webkit-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
+}
+
 /*#header {
     -webkit-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
     -moz-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);

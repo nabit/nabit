@@ -9,15 +9,13 @@
     this.timestamp = opts.timestamp;
   }
 
-  // Bookmark.prototype.toHtml = function() {
-  //
-  //   var remindCarouselTemplate = $('#carousel-reminder-template').html();
-  //   var recentsCarouselTemplate = $('#carousel-recent-template').html();
-  //   var compiledTemplates = Handlebars.compile(remindCarouselTemplate, recentsCarouselTemplate);
-  //
-  //   return compiledTemplate(this);
-  //
-  // };
+
+  Bookmark.prototype.toHtml = function() {
+    var iframeTemplate = $('#template').html();
+    var compiledTemplate = Handlebars.compile(iframeTemplate);
+
+    return compiledTemplate(this);
+  };
 
   module.Bookmark = Bookmark;
 

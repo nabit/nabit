@@ -22,6 +22,7 @@
     });
 
   };
+
   bookmarkView.modal();
   bookmarkView.nav();
   module.bookmarkView = bookmarkView;
