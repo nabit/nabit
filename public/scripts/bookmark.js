@@ -22,18 +22,3 @@
   module.Bookmark = Bookmark;
 
 })(window);
-
-//
-// javascript:(function(){
-//   var title = $('document.title');
-//   var url = $('window.location.href');
-//   $.ajax({
-//     type: 'POST',
-//     url: '/users/user/bookmark',
-//     data: {title: title, url: url},
-//     success: function(data) {
-//       console.log('data', data);
-//     }
-//   });
-//   return false;
-// }());

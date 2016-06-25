@@ -33,8 +33,9 @@
     $.ajax({
       url: '/users/' + username + '/' + password,
       type: 'POST',
-      success: function(user, status, xhr) {
-        localStorage.setItem('userId', user.id);
+      success: function(data, status, xhr) {
+        console.log(data);
+        localStorage.setItem('userId', data);
       },
       error: function(data, status, xhr) {
         console.log(data);
@@ -52,8 +53,8 @@
     $.ajax({
       url: '/users/' + username + '/' + password,
       type: 'GET',
-      success: function(user, status, xhr) {
-        localStorage.setItem('userId', user.id);
+      success: function(data, status, xhr) {
+        localStorage.setItem('userId', data);
       },
       error: function(data, status, xhr) {
         console.log(data);
