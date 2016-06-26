@@ -13,6 +13,14 @@
     $('#login-button').on('click', function() {
       $('#login').addClass('show');
     });
+    $('#bookmark-link').on('click', function() {
+      $('#add-bookmark').addClass('show');
+    });
+    $('#add-bkm-btn').on('click', function() {
+      console.log('reload');
+      window.location.reload();
+    });
+
 
   };
   bookmarkView.nav = function() {

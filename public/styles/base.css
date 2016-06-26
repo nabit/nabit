@@ -90,6 +90,11 @@ nav li {
     list-style-type: none;
 }
 
+.circle-btn {
+  color: green;
+  font-size: 26px;
+  cursor: pointer;
+}
 
 .add-bookmark-form {
     display: inline-block;
