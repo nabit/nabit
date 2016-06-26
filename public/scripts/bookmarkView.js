@@ -6,7 +6,10 @@
       console.log('reload');
       window.location.reload();
     });
-
+    $('#login-btn').on('click', function() {
+      console.log('reload');
+      window.location.reload();
+    });
     $('#login-button').on('click', function() {
       $('#login').addClass('show');
     });
