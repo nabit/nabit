@@ -119,10 +119,7 @@ nav li {
 }
 #header {
     margin-bottom: 18px;
-<<<<<<< HEAD
     padding-bottom: 1px;
-=======
->>>>>>> 01b77a7eb50fcbefcbdbb1527ed12a50465e6c02
     -webkit-box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
     -moz-box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
     box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
@@ -134,21 +131,21 @@ nav li {
     margin-top: -2px;
     padding: 7px;
     background-color:
-<<<<<<< HEAD
+
 }
 
 #iframes-input {
   /*background-color: lightgray;*/
 }
 
-=======
+
 }
 
 #iframes-input {
   /*background-color: lightgray;*/
 }
 
->>>>>>> 01b77a7eb50fcbefcbdbb1527ed12a50465e6c02
+
 iframe {
     -webkit-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
@@ -159,6 +156,7 @@ iframe {
 #login-button:hover {
   text-decoration: none;
 }
+
 
 
 .remove-btn {
