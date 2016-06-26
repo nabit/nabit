@@ -5,10 +5,15 @@
   userController.init = function() {
     console.log('userController init');
     var id = localStorage.getItem('userId');
-
     this.handleLoginSubmit();
     this.handleSignupSubmit();
-    allBkmController.getAllBookmarksByUserId(id);
+
+    //if userId is present, load bookmarks, else show the login modal
+    if(id) {
+      allBkmController.getAllBookmarksByUserId(id);
+    } else {
+      $('#login').addClass('show');
+    }
   };
 
   //
@@ -38,6 +43,7 @@
 
       success: function(user, status, xhr) {
         localStorage.setItem('userId', user);
+        allBkmController.getAllBookmarksByUserId(user);
 
       },
       error: function(data, status, xhr) {
