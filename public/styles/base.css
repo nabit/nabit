@@ -193,18 +193,18 @@ iframe {
     margin-left: 30px;
 }
 
-/*
-.hlink {
-  background: blue;
-  text-decoration: none;
-  background-color: blue;
+.box-info {
+  background-color: lightgray;
+  opacity: .7;
+  border-radius: 5px;
+  margin-top: 1%;
+  color: black;
+  padding: 15px;
 
-}*/
 
+}
 
-/*#header {
-    -webkit-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
-    -moz-box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
-    box-shadow: inset 3px 7px 14px -4px rgba(0, 0, 0, 0.56);
-
-}*/
+.infobox-sizing {
+  margin-left: 3%;
+  margin-right: 10%;
+}

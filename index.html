@@ -105,11 +105,43 @@
     </div>
 
     <section class="setup-page hide">
-        <h1>Setup</<br><hr>
-        <h3>How NabIt Works</h3>
-        <p>NabIt</p>
+        <h1 class="infobox-sizing">Setup</<br><hr>
+        <h3 class="infobox-sizing">How NabIt Works</h3>
+        <p class="infobox-sizing">
+          NabIt itegrates a bookmarklet directly in the users browser. When the user click on the bookmark
+          the url and title information of webpage currently in view is send to NabIt's database. When the client
+          login's in Nabit.com all booksmarks are available to browse.
+        </p>
+        <h3 class="infobox-sizing">
+          Limitations
+        </h3>
+        <p class="infobox-sizing">
+          Our bookmarklet utilizes
+          Ajax POST and GET calls to directly transfer and store the client's new bookmook. Unfortunately,
+          on some webpages this may result in something called Cross-Origin conflicts where the website
+          being visited denys Ajax calls to an out-of-domain server. For this reason some pages may not store
+          the bookmark.
 
-        <h3>Getting started</h3>
+          Nabit incorporates iframe HTML element to render a live presentation of current bookmarks in the user history.
+          Due to a Cross-Origin denial Iframes may also not render an added bookmark.
+
+        </p>
+
+        <h3 class="infobox-sizing">Getting started</h3>
+
+        <div class="infobox-sizing">
+            To get started create a new bookmark on your browser and give a title of your own choice.
+            Next, copy paste the code seen below into
+            the url address bar. If you haven't created a user and password go ahead do this.
+            You're ready, go start to NabIt!
+
+            <div class="box-info infobox-sizing">
+              javascript:void function($){var loadBookmarklet=function($){var urlBookmark=window.location.href.replace("http://","").replace("/","+"),title=document.title.split(" ").join("+").replace("-","+");console.log(title),$.ajax({type:"POST",url:"http://localhost:5000/users/1/bookmark/"+title+"/"+urlBookmark,success:function(data){console.log(data)},error:function(){console.log("it failed")}})},hasJQuery=$&&$.fn&&parseFloat($.fn.jquery)>=1.7;if(hasJQuery)loadBookmarklet($);else{var s=document.createElement("script");s.src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js",s.onload=s.onreadystatechange=function(){var state=this.readyState;state&&"loaded"!==state&&"complete"!==state||loadBookmarklet(jQuery.noConflict())}}document.getElementsByTagName("head")[0].appendChild(s)}(window.jQuery);
+            </div>
+
+        </div>
+
+
         <p></p>
         <div></div>
     </section>
