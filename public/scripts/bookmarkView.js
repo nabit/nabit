@@ -22,6 +22,7 @@
     });
 
   };
+
   //
   // bookmarkView.setup = function() {
   //   // $('#logout-button').addClass('hide');

@@ -50,7 +50,7 @@
     $('#iframes-input').empty();
     bookmarks.forEach(function(bookmark) {
       bookmark.url = bookmark.url.replace('+','/');
-      
+
       console.log("is it doing it? ", bookmark);
       $('#iframes-input').append(bookmark.toHtml());
     });
