@@ -16,6 +16,26 @@
     }
   };
 
+  userController.getUsername = function() {
+    var self = this;
+    var id = localStorage.getItem('userId');
+
+    // pretend authentication has happened
+    $.ajax({
+      url: '/users/' + id,
+      type: 'GET',
+      success: function(user, status, xhr) {
+        $('#login-button').text(user);
+      },
+      error: function(data, status, xhr) {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
+        $('#login-button').text('Login');
+      }
+    });
+  };
+
   //
   userController.handleLoginSubmit = function() {
     var self = this;
@@ -44,7 +64,7 @@
       success: function(user, status, xhr) {
         localStorage.setItem('userId', user);
         allBkmController.getAllBookmarksByUserId(user);
-
+        $('#login-btn').text(username);
       },
       error: function(data, status, xhr) {
         console.log(data);
@@ -56,13 +76,11 @@
 
   userController.getUserId = function(username, password, next){
     var self = this;
-    console.log(username);
 
     // pretend authentication has happened
     $.ajax({
       url: '/users/' + username + '/' + password,
       type: 'GET',
-
       success: function(user, status, xhr) {
         localStorage.setItem('userId', user);
         allBkmController.getAllBookmarksByUserId(user);

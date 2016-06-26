@@ -53,6 +53,7 @@
       success: function(data, status, xhr) {
         var bookmarks = self.makeNewBookmarks(data);
         self.renderCarousel(bookmarks);
+        userController.getUsername();
       },
       error: function(data, status, xhr) {
         console.log(data);
