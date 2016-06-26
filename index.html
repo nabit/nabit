@@ -135,7 +135,7 @@
             the url address bar. If you haven't created a user and password go ahead do this.
             You're ready, go start to NabIt!
 
-            <div class="box-info infobox-sizing">
+            <div class="box-info">
               javascript:void function($){var loadBookmarklet=function($){var urlBookmark=window.location.href.replace("http://","").replace("/","+"),title=document.title.split(" ").join("+").replace("-","+");console.log(title),$.ajax({type:"POST",url:"http://localhost:5000/users/1/bookmark/"+title+"/"+urlBookmark,success:function(data){console.log(data)},error:function(){console.log("it failed")}})},hasJQuery=$&&$.fn&&parseFloat($.fn.jquery)>=1.7;if(hasJQuery)loadBookmarklet($);else{var s=document.createElement("script");s.src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js",s.onload=s.onreadystatechange=function(){var state=this.readyState;state&&"loaded"!==state&&"complete"!==state||loadBookmarklet(jQuery.noConflict())}}document.getElementsByTagName("head")[0].appendChild(s)}(window.jQuery);
             </div>
 
