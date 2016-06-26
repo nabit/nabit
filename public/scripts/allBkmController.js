@@ -24,6 +24,14 @@
     });
   };
 
+  allBkmController.handleAdd = function() {
+    var self = this;
+    $('#add-bkm-btn').on('click', function(e){
+      e.preventDefault();
+      self.addBookmark($('#title').val(), $('#url').val());
+    });
+  };
+
   allBkmController.removeBookmarkById = function(id, bookmarkId) {
     var self = this;
 
@@ -34,6 +42,30 @@
       success: function(data, status, xhr) {
         var bookmarks = self.makeNewBookmarks(data);
         self.renderCarousel(bookmarks);
+      },
+      error: function(data, status, xhr) {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
+      }
+    });
+  };
+
+  allBkmController.addBookmark = function(title, url) {
+    var self = this;
+    var id = localStorage.getItem('userId');
+    console.log('title', title);
+    console.log('url', url);
+
+    // pretend authentication has happened
+    $.ajax({
+      url: '/users/' + id +'/bookmark/' + title + '/' + url,
+      type: 'POST',
+      success: function(data, status, xhr) {
+        console.log(status);
+        var bookmarks = self.makeNewBookmarks(data);
+        self.renderCarousel(bookmarks);
+        userController.getUsername();
       },
       error: function(data, status, xhr) {
         console.log(data);
@@ -79,6 +111,7 @@
     });
   };
 
+  allBkmController.handleAdd();
   allBkmController.handleRemove();
   allBkmController.handleAllBookmarksSubmit();
 

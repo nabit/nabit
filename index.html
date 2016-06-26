@@ -5,9 +5,6 @@
 
     <link type="text/css" rel="stylesheet" href="public/styles/vendor/normalize.css">
     <link type="text/css" rel="stylesheet" href="public/styles/base.css">
-    <link type="text/css" rel="stylesheet" href="public/styles/base.css">
-    <link type="text/css" rel="stylesheet" href="public/styles/modules.css">
-    <link type="text/css" rel="stylesheet" href="public/styles/layout.css">
     <link type="text/css" rel="stylesheet" href="public/styles/vendor/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -34,7 +31,7 @@
             <div class="space">
                 <nav>
                     <ul class="nabit-ul">
-                        <!-- <li id=burger-menu class="nabit-li"></li> -->
+                        <li class="nabit-li"><a href="#add-bookmark" id="bookmark-link" class="this">+ Bookmark</a></li>
                         <li class="nabit-li"><a href="" id="setup-link" class="this">Setup</a></li>
                         <li class="nabit-li"><a href="" id="history-link" class="this">Refresh</a></li>
                         <li class="nabit-li"><a href="#login" id="login-button" class="links-css devtipsButton" data-toggle="modal">Login</a></li>
@@ -53,6 +50,30 @@
         </div>
 
     </section>
+
+    <div class="modal modal-background" id="add-bookmark" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <img id="cross-button" src="assets/cross.png" alt="cross">
+                <div class="modal-header">
+                    <h1>Add Bookmark</h1>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="title">Title:</label>
+                                <input type="text" class="form-control" id="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="url">Url:</label>
+                                <input type="text" class="form-control" id="url">
+                            </div>
+                            <button id='add-bkm-btn' type="submit" class="btn btn-default">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal modal-background" id="login" role="form">
         <div class="modal-dialog">
@@ -111,7 +132,6 @@
 
     <!--our scripts -->
     <script type="text/javascript" src="public/scripts/bookmark.js"></script>
-    <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
     <script type="text/javascript" src="public/scripts/allBkmController.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
     <script type="text/javascript" src="public/scripts/setupController.js"></script>
