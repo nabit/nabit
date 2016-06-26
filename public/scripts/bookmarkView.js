@@ -3,10 +3,8 @@
 
   bookmarkView.modal = function() {
     $('#cross-button').on('click', function() {
-      console.log('remove');
-      $('#login').hide('#login');
-      $('div.modal-backdrop').removeClass('modal-backdrop');
-      $('div.modal-background').removeClass('modal-background');
+      console.log('reload');
+      window.location.reload();
     });
 
     $('#login-button').on('click', function() {
@@ -22,6 +20,18 @@
     });
 
   };
+
+  //
+  // bookmarkView.setup = function() {
+  //   // $('#logout-button').addClass('hide');
+  //   // $('#login-button').on('click', function() {
+  //   //   $('#login').addClass('show');
+  //   //   $('#logout-button').removeClass('hide').addClass('show');
+  //   // });
+  //
+  // };
+
+
 
   bookmarkView.modal();
   bookmarkView.nav();

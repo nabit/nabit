@@ -16,10 +16,12 @@
 
     <script id="template" type="text/x-handlebars-template">
         <div class="item active" data-attribute="{{id}}">
-
+            <div class="iframe-container">
             <iframe id="frame" src="http://{{url}}" scrolling="no">
             </iframe>
-            <button type="button" class="btn btn-default remove-btn">REMOVE</button>
+            </div>
+            <button id='remove-btn' type="submit" class="btn btn-default">REMOVE</button>
+            <a href="http://{{url}}" id='remove-btn' class="btn btn-default">VISIT</a>
         </div>
     </script>
 
@@ -33,9 +35,11 @@
             <div class="space">
                 <nav>
                     <ul class="nabit-ul">
-                        <li class="nabit-li"><a href="/setup" id="setup-link" class="links-css">Setup</a></li>
-                        <li class="nabit-li"><a href="" id="history-link" class="links-css">Refresh</a></li>
-                        <li class="nabit-li"><a href="#login" id="login-button" class="links-css" data-toggle="modal">Login</a></li>
+                        <!-- <li id=burger-menu class="nabit-li"></li> -->
+                        <li class="nabit-li"><a href="" id="setup-link" class="this">Setup</a></li>
+                        <li class="nabit-li"><a href="" id="history-link" class="this">Refresh</a></li>
+                        <li class="nabit-li"><a href="#login" id="login-button" class="links-css devtipsButton" data-toggle="modal">Login</a></li>
+                        <!-- <li class="nabit-li"><a href="#" id="logout-button">Logout</a></li> -->
                     </ul>
                 </nav>
             </div>
@@ -43,7 +47,7 @@
     </div>
 
     <!-- ===============MAIN SECTION==================== -->
-    <section id="theCarouse">
+    <section id="theCarousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" id="iframes-input" role="listbox">
             <!--load in bookmark template -->
@@ -80,7 +84,7 @@
         </div>
     </div>
 
-    <section class="setup-page">
+    <section class="setup-page hide">
         <h1>Setup</<br><hr>
         <h3>How NabIt Works</h3>
         <p>NabIt</p>
@@ -91,39 +95,9 @@
     </section>
 
     <section class="allNabits-page">
-        <!-- <h1>Setup</<br><hr>
-        <h3>How NabIt Works</h3>
-        <p>NabIt</p>
 
-        <h3>Getting started</h3>
-        <p></p>
-        <div></div> -->
     </section>
 
-
-
-    <section class="add-bookmark-form hide">
-        <aside class="aside-spacer"></aside>
-        <div class="modal-body" id="test-form">
-            <form role="form" id="practice-form">
-                <div class="form-group">
-                    <H1>Add Bookmark</H1>
-        <label for="username">Title:</label>
-        <input type="text" class="form-control" id="titleinfo">
-        </div>
-        <div class="form-group">
-            <label for="pwd">Url:</label>
-            <input type="text" class="form-control" id="urlinfo">
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-default" id="form-submit">Submit</button>
-        </form>
-        </div>
-        <div></div>
-    </section>
     <footer id="footer">
         <div class="">
             <div id="footer-content">&copy;2016 NabIt | <a href="https://github.com/nabit/nabit" id="doc-link" class="links-css">Documentation</a></div>
@@ -141,6 +115,7 @@
     <script type="text/javascript" src="public/scripts/bookmarkController.js"></script>
     <script type="text/javascript" src="public/scripts/allBkmController.js"></script>
     <script type="text/javascript" src="public/scripts/bookmarkView.js"></script>
+    <script type="text/javascript" src="public/scripts/setupController.js"></script>
     <script src="public/scripts/user.js"></script>
     <script src="public/scripts/userController.js"></script>
     <script src="public/scripts/routes.js"></script>

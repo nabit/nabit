@@ -1,5 +1,2 @@
-page('/', function(){
-  userController.init();
-});
-
+page('/', function(){userController.init();});
 page();
