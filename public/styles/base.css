@@ -136,13 +136,14 @@ nav li {
     -moz-box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
     box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
 }
-.remove-btn {
+.removing-btn {
     position: inherit;
     margin-left: 16px;
     margin-bottom: 10px !important;
     margin-top: 4px;
     padding: 7px;
-    background-color:
+    background-color: darkred !important;
+    color: white !important;
 }
 #iframes-input {
     width: 100%;
