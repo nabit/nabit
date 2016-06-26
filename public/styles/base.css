@@ -35,7 +35,6 @@ nav {
     margin-bottom: 10px;
     /* margin-bottom: 50px; */
 }
-
 .nabit-ul {
     display: flex;
     list-style-type: none;
@@ -70,18 +69,13 @@ nav li {
     text-decoration: none;
     list-style-type: none;
 }
-
-
 .this {
     color: gray;
     text-decoration: none;
     list-style-type: none;
     font-family: sans-serif;
     opacity: .9;
-
-
 }
-
 .this:hover {
     color: black;
     font-size: 1em;
@@ -89,8 +83,6 @@ nav li {
     text-decoration: none;
     list-style-type: none;
 }
-
-
 .add-bookmark-form {
     display: inline-block;
     width: 50%;
@@ -128,9 +120,6 @@ nav li {
     color: gray;
     font-family: courier;
 }
-
-
-
 #title-logo {
     margin-left: 50px;
     color: gray;
@@ -149,13 +138,15 @@ nav li {
 .remove-btn {
     position: inherit;
     margin-left: 16px;
-    margin-bottom: 9px;
+    margin-bottom: 10px !important;
     margin-top: 4px;
     padding: 7px;
+    background-color:
 }
 #iframes-input {
     width: 100%;
 }
+
 /*
 .iframe-container {
 -webkit-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
@@ -169,16 +160,16 @@ iframe {
     -webkit-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
     box-shadow: 2px 4px 26px -1px rgba(0, 0, 0, 0.4);
-
 }
-
 #login-button:hover {
     text-decoration: none;
 }
+
 /*.remove-btn {
     text-decoration: none;
     color: red;
 }*/
+
 .devtipsButton {
     display: inline-block;
     background: lightseagreen;
