@@ -4,8 +4,8 @@
     margin: 5px;
 }
 .modal-background {
-    background-color: gray;
-    opacity: .9;
+    background-color: lightgray;
+    opacity: 1;
 }
 #cross-button:hover {
     width: 20px;
