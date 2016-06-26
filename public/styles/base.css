@@ -146,13 +146,14 @@ nav li {
     -moz-box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
     box-shadow: 2px 7px 11px -2px rgba(0, 0, 0, 0.46);
 }
-#remove-btn {
+.remove-btn {
     position: inherit;
     margin-left: 10px;
     margin-bottom: 4px;
     margin-top: -2px;
     padding: 7px;
-    background-color:
+    background-color: red;
+    color: white;
 }
 #iframes-input {
     width: 100%;
@@ -173,14 +174,13 @@ iframe {
 
 }
 
-
 #login-button:hover {
     text-decoration: none;
 }
-.remove-btn {
+/*.remove-btn {
     text-decoration: none;
-    color: black;
-}
+    color: red;
+}*/
 .devtipsButton {
     display: inline-block;
     background: lightseagreen;

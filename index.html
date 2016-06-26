@@ -15,13 +15,13 @@
 
 
     <script id="template" type="text/x-handlebars-template">
-        <div class="item active" data-attribute="{{id}}">
+        <div class="item active" data-rowid="{{id}}">
             <div class="iframe-container">
-            <iframe id="frame" src="http://{{url}}" scrolling="no">
-            </iframe>
+                <iframe id="frame" src="http://{{url}}" scrolling="no">
+                </iframe>
             </div>
-            <button id='remove-btn' type="submit" class="btn btn-default">REMOVE</button>
-            <a href="http://{{url}}" id='remove-btn' class="btn btn-default">VISIT</a>
+            <button type="submit" class="btn btn-default remove-btn">REMOVE</button>
+            <a href="http://{{url}}" class="btn btn-default link-btn">VISIT</a>
         </div>
     </script>
 
